@@ -1,0 +1,15 @@
+{
+  "name": "AkashicRecords",
+  "version": "0.0.1",
+  "description": "A toy DBMS implemented by TypeScript",
+  "main": "index.js",
+  "repository": "https://github.com/9sako6/AkashicRecords.git",
+  "author": "9sako6 <31821663+9sako6@users.noreply.github.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^3.4.0",
+    "@typescript-eslint/parser": "^3.4.0",
+    "eslint": "^7.3.1",
+    "typescript": "^3.9.5"
+  }
+}
