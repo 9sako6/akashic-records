@@ -1,1 +1,1 @@
-{ "tables": [{ "tableName": "users", "columns": [{ "columnName": "name" }] }] }
+{"tables":[{"tableName":"users","columns":[{"columnName":"name"}]}]}
