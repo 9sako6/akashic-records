@@ -1,4 +1,4 @@
-import { Log } from './Log';
+import { Log } from './Log.ts';
 
 export class Page {
   readonly PAGE_SIZE = 4096; // fixed-size (4 KiB)

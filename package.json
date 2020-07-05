@@ -7,20 +7,13 @@
   "author": "9sako6 <31821663+9sako6@users.noreply.github.com>",
   "license": "MIT",
   "scripts": {
-    "format": "npx dprint",
-    "test": "npx jest"
+    "fmt": "npx dprint",
+    "test": "deno test --unstable --allow-read --allow-write tests/"
   },
   "devDependencies": {
-    "@types/bson": "^4.0.2",
-    "@types/jest": "^26.0.3",
-    "@types/node": "^14.0.14",
-    "bson": "https://github.com/9sako6-playground/js-bson",
     "dprint": "^0.12.0",
     "dprint-plugin-jsonc": "^0.7.2",
     "dprint-plugin-typescript": "^0.20.4",
-    "jest": "^26.1.0",
-    "ts-jest": "^26.1.1",
-    "ts-node": "^8.10.2",
     "typescript": "^3.9.5"
   }
 }

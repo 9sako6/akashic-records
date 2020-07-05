@@ -1,5 +1,3 @@
-import * as bson from 'bson';
-
 type Operator = 'INSERT' | 'DELETE' | 'UPDATE' | 'UNKNOWN';
 
 type Value = string | boolean | number;
@@ -12,11 +10,14 @@ type LogData = {
 
 export class Log {
   data: LogData;
-  buffer: Buffer;
+  buffer: Uint8Array;
   byteLength: number;
+  private encoder = new TextEncoder();
+  private decoder = new TextDecoder('utf-8');
+
   constructor(operator: Operator, columnId: number, value: Value) {
     this.data = { operator, columnId, value };
-    this.buffer = bson.serialize(this.data);
+    this.buffer = this.encoder.encode(JSON.stringify(this.data));
     this.byteLength = this.buffer.byteLength;
   }
 }

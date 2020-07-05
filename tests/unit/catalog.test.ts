@@ -1,31 +1,41 @@
-import * as fs from 'fs';
-import { Catalog } from '@/src/storage/Catalog';
+import { assertEquals } from 'https://deno.land/std/testing/asserts.ts';
+import { Catalog } from '../../src/storage/Catalog.ts';
 
-describe('read/write', () => {
-  const testCatalogDir = './tests/fixtures';
-  test('should load a valid path catalog.json', () => {
+const testCatalogDir = './tests/fixtures';
+
+Deno.test({
+  name: 'should load a valid path catalog.json',
+  fn(): void {
     const catalog = new Catalog();
     catalog.load(testCatalogDir);
-    expect(catalog.scheme).toEqual(
-      JSON.parse(
-        fs.readFileSync(`${testCatalogDir}/${catalog.fileName}`, { encoding: 'utf-8' }),
-      ),
+    assertEquals(
+      catalog.scheme,
+      JSON.parse((new TextDecoder('utf-8')).decode(Deno.readFileSync(`${testCatalogDir}/${catalog.fileName}`))),
     );
-  });
+  },
+});
 
-  test('should fail to load an invalid path catalog.json', () => {
+Deno.test({
+  name: 'should fail to load an invalid path catalog.json',
+  fn(): void {
     const catalog = new Catalog();
-    expect(catalog.load('./tests/fixtures_not_found')).toBe(false);
-  });
+    assertEquals(catalog.load('./tests/fixtures_not_found'), false);
+  },
+});
 
-  test('should save a valid path catalog.json', () => {
+Deno.test({
+  name: 'should save a valid path catalog.json',
+  fn(): void {
     const catalog = new Catalog();
     catalog.load(testCatalogDir);
-    expect(catalog.save(testCatalogDir)).toBe(true);
-  });
+    assertEquals(catalog.save(testCatalogDir), true);
+  },
+});
 
-  test('should fail to save an invalid path catalog.json', () => {
+Deno.test({
+  name: 'should fail to save an invalid path catalog.json',
+  fn(): void {
     const catalog = new Catalog();
-    expect(catalog.save('./tests/fixtures_not_found')).toBe(false);
-  });
+    assertEquals(catalog.save('./tests/fixtures_not_found'), false);
+  },
 });
