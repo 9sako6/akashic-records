@@ -1,6 +1,5 @@
-import * as fs from 'fs';
-import { Log } from './src/storage/Log';
-import { Page } from './src/storage/Page';
+import { Log } from './src/storage/Log.ts';
+import { Page } from './src/storage/Page.ts';
 
 const log = new Log('INSERT', 2, '1すし');
 console.log(log);
@@ -9,4 +8,4 @@ page.insertLog(log);
 page.insertLog(log);
 page.encode();
 console.log(page);
-fs.writeFileSync('./fuga', page.buffer);
+Deno.writeFileSync('./fuga', page.buffer);

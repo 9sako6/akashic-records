@@ -1,5 +1,6 @@
 export class LRUCache<Key, Value> {
   private cache = new Map<Key, Value>();
+
   constructor(public capacity: number) {
     if (capacity <= 0) throw new Error(`Invalid capacity: ${capacity}`);
   }
