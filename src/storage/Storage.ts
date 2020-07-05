@@ -1,5 +1,5 @@
-import { BufferPool } from './BufferPool';
-import { DiskManager } from './DiskManager';
+import { BufferPool } from './BufferPool.ts';
+import { DiskManager } from './DiskManager.ts';
 
 export class Storage {
   bufferPool: BufferPool;

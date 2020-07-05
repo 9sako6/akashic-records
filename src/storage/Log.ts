@@ -1,4 +1,7 @@
-import * as bson from 'bson';
+import { createRequire } from "https://deno.land/std/node/module.ts";
+
+const require = createRequire(import.meta.url);
+const bson = require('bson')
 
 type Operator = 'INSERT' | 'DELETE' | 'UPDATE' | 'UNKNOWN';
 
@@ -12,7 +15,7 @@ type LogData = {
 
 export class Log {
   data: LogData;
-  buffer: Buffer;
+  buffer: Uint8Array;
   byteLength: number;
   constructor(operator: Operator, columnId: number, value: Value) {
     this.data = { operator, columnId, value };

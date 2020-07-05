@@ -1,4 +1,4 @@
-import { Page } from './Page';
+import { Page } from './Page.ts';
 
 export class BufferPool {
   frame: Array<Page> = [];
